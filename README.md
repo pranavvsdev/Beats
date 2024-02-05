@@ -30,7 +30,15 @@ contract Beats is ERC20, ERC20Burnable, Ownable, ERC20Permit {
     function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
+
+    function burn(uint256 amt_to_burn) public override {
+        _burn(msg.sender,amt_to_burn);
+    }   
+    function transfer(uint256 amt_to_transfer, address addr_to_transfer) public {
+        _transfer(msg.sender, addr_to_transfer, amt_to_transfer);
+    }    
 }
+
 
 ```
 
